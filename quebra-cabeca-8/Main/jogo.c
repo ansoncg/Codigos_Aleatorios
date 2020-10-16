@@ -134,7 +134,7 @@ dadoCompara(compJogo) {
    return distUm - distDois;
 }
 
-// Compara as matriz para inserir na lista.
+// Compara as matriz para inserir na AVL.
 dadoCompara(compMatriz) {
    int comp;
 
