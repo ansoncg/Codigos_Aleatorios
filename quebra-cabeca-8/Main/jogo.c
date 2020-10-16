@@ -39,14 +39,13 @@ int main() {
 // Leitura e inicialização da entrada dos testes.
 void leJogo(jogo *jg) {
    for (int i = 0; i < 3; i++) 
-      for (int j = 0; j < 3; j++) {
+      for (int j = 0; j < 3; j++) 
          if(!scanf("%d", &jg->m.partes[i][j])) {
             jg->m.partes[i][j] = 0;
             jg->xBuraco = i;
             jg->yBuraco = j;
             getchar();
          }
-      }
    jg->caminho[0] = '\0';
    jg->profundidade = 0;
    return;
@@ -57,10 +56,9 @@ int distaManhattan(jogo jg) {
    int dist = 0;  
     
    for (int i = 0; i < 3; i++) 
-      for (int j = 0; j < 3; j++)  {
+      for (int j = 0; j < 3; j++)  
          if (jg.m.partes[i][j])
             dist += abs(((jg.m.partes[i][j] - 1) / 3) - i) + abs(((jg.m.partes[i][j] - 1) % 3) - j); 
-      }
    return dist;
 }
 
@@ -134,7 +132,7 @@ dadoCompara(compJogo) {
    return distUm - distDois;
 }
 
-// Compara as matriz para inserir na lista.
+// Compara as matrizes para inserir na AVL.
 dadoCompara(compMatriz) {
    int comp;
 
