@@ -45,17 +45,17 @@ static void arvAVL_iteraPre(ArvAVL_No *avl_no, dado_usa funcao) {
 static void arvAVL_iteraIn(ArvAVL_No *avl_noAtual, dado_usa funcao) {
    if (avl_noAtual == NULL)
       return;
-   arvAVL_iteraPre(avl_noAtual->esquerda, funcao);
+   arvAVL_iteraIn(avl_noAtual->esquerda, funcao);
    (*funcao)(avl_noAtual->dado);
-   arvAVL_iteraPre(avl_noAtual->direita, funcao);
+   arvAVL_iteraIn(avl_noAtual->direita, funcao);
    return;
 } 
 
 static void arvAVL_iteraPos(ArvAVL_No *avl_no, dado_usa funcao) {
    if (avl_no == NULL)
       return;
-   arvAVL_iteraPre(avl_no->esquerda, funcao);
-   arvAVL_iteraPre(avl_no->direita, funcao);
+   arvAVL_iteraPos(avl_no->esquerda, funcao);
+   arvAVL_iteraPos(avl_no->direita, funcao);
    (*funcao)(avl_no->dado);
    return;
 } 
@@ -83,7 +83,7 @@ static int arvAVL_dadoCmp(ArvAVL *avl, const void *dadoUm, const void *dadoDois)
       return avl->funcCompara(dadoUm, dadoDois);
 }
 
-static ArvAVL_No *arvAVL_buscaDado(ArvAVL *avl, const void *dado, ArvAVL_No *noAtual) {
+static ArvAVL_No*  arvAVL_buscaDado(ArvAVL *avl, const void *dado, ArvAVL_No *noAtual) {
    int comparacao;
 
    if (noAtual == NULL)
@@ -218,6 +218,7 @@ Erro arvAVL_itera(ArvAVL *avl, dado_usa funcao, Ordem iteracaoOrdem) {
 
 Erro arvAVL_insere(ArvAVL *avl, const void *dado) { 
    bool repetido = false;
+
    avl->raiz = arvAVL_insereNo(avl, avl->raiz, dado, &repetido);
    if (repetido)
       return 1;
