@@ -1,0 +1,15 @@
+Entre com um nome valido para o arquivo de apostas:
+Quais os numeros sorteados?
+
+Numeros sorteados:
+17 20 22 35 41 42 
+
+Acertos aposta 1: 42 
+Acertos aposta 2: 
+Acertos aposta 3: 
+Acertos aposta 4: 42 
+Acertos aposta 5: 41 
+Acertos aposta 6: 
+Acertos aposta 7: 42 
+
+Maior quantidade de acertos: 1
